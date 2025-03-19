@@ -11,7 +11,7 @@ app.use(
   cors({
     origin: "https://cookie-tests.vercel.app", // Frontend URL
     credentials: true, // Allow cookies to be sent
-    methods: ["GET", "POST", "OPTIONS"], // Allowed HTTP methods
+    methods: ["POST"], // Allowed HTTP methods
     allowedHeaders: ["Content-Type", "Authorization"], // Allowed headers
   })
 );
@@ -23,7 +23,7 @@ app.get("/", (req, res) => {
   console.log("Setting cookie...");
   res.cookie("myCookie", "Hello from backend!", {
     httpOnly: true,
-    secure: process.env.NODE_ENV === "production", // Only secure in production
+    secure: true, // Only secure in production
     sameSite: "None", // Allows cross-site cookies
   });
   res.json({ message: "Cookie has been set!" });

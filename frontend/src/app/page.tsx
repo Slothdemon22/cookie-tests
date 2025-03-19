@@ -8,9 +8,7 @@ export default function Home() {
   // Function to set the cookie
   const setCookie = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/", {
-        withCredentials: true, // Ensures cookies are sent & received
-      });
+      const response = await axios.get("http://localhost:5000/");
       console.log(response.data);
       setMessage(response.data.message);
     } catch (err) {
@@ -21,9 +19,7 @@ export default function Home() {
   // Function to check if cookie is received
   const checkCookie = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/test-cookie", {
-        withCredentials: true, // Ensures cookies are sent with the request
-      });
+      const response = await axios.get("http://localhost:5000/test-cookie");
       console.log(response.data);
       setMessage(response.data.message);
     } catch (err) {
