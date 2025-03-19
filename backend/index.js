@@ -18,6 +18,7 @@ app.use(cookieParser());
 app.use(express.json());
 
 app.get("/", (req, res) => {
+    console.log("hello");
   res.cookie("myCookie", "Hello from backend!", {
     httpOnly: true,
     secure: process.env.NODE_ENV === "production", // Enables secure cookies in production
@@ -26,5 +27,5 @@ app.get("/", (req, res) => {
   res.json({ message: "Cookie has been set!" });
 });
 
-const PORT = process.env.PORT || 5000;
+const PORT =  5000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
